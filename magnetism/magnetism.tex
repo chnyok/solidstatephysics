@@ -13,7 +13,7 @@
 %\begin{document}
 %\maketitle
 \section{Pauli equation}
-A suitable starting point to investigate magnetism in atomic systems is the Pauli equation, which describes the dynamics of a non-relativistic spin-1/2 particle in an electromagnetic field. The for electron with the mass $q$ and the charge $-e$ the standard form of the time-independent equation is
+A suitable starting point to investigate magnetism in atomic systems is the Pauli equation, which describes the dynamics of a non-relativistic spin-1/2 particle in an electromagnetic field. A single electron with the mass $m$ and the charge $-e$ the standard form of the time-independent equation is
 \begin{equation}
 \left[\frac{(\mathbf{p} + e \mathbf{A})^2}{2m} + \frac{e \hbar}{m} \mathbf{s} \cdot \mathbf{B} - e \phi \right] | \psi \rangle = E | \psi \rangle,
 \end{equation}
@@ -40,50 +40,60 @@ In such a representation the state $| \psi \rangle$ is represented by a two-comp
 \psi_+ |\uparrow \rangle + \psi_- | \downarrow \rangle
 .
 \end{equation}
-Assuming that $\mathbf{A}$ is in Coulomb gauge \emph{i.e.} $\nabla \cdot \mathbf{A} = 0$, we may expand\footnote{Here we must remember that we are dealing with operators that do not commute. The following result is derived using a test function.}
+
+Let us consider an ion with $N$ electrons. The Pauli equation now reads
 \begin{equation}
-(\mathbf{p} + e \mathbf{A})^2 = \mathbf{p}^2 
-+ \underbrace{e \mathbf{p} \cdot\mathbf{A}}_{=0}
-+ 2 e \mathbf{A} \cdot \mathbf{p}
-+ e^2 \mathbf{A}^2 = \mathbf{p}^2 
-+ 2 e \mathbf{A} \cdot \mathbf{p}
-+ e^2 \mathbf{A}^2.
+\sum_{i=1}^N \left[\frac{(\mathbf{p}_i + e \mathbf{A}_i)^2}{2m} + \frac{e \hbar}{m} \mathbf{s}_i \cdot \mathbf{B}_i - e \phi_i \right] | \psi \rangle = E | \psi \rangle,
+\end{equation}
+where
+\begin{equation}
+\phi_i =\frac{1}{4\pi \epsilon_0} \left(\frac{Z_n e}{ |\mathbf{r}_i|} - \frac{1}{2} \sum_{j \neq i} \frac{e}{|\mathbf{r}_i - \mathbf{r}_j|} \right)
+\end{equation}
+is the electrostatic potential due to the nuclear charge and other electrons\footnote{Factor of $\frac{1}{2}$ is added to avoid double counting}.
+$\mathbf{r}_i$ is the position vector of $i$th electron. Assuming that $\mathbf{A}_i$ are in Coulomb gauge \emph{i.e.} $\nabla \cdot \mathbf{A}_i = 0$, we may expand\footnote{Note that $\mathbf{p}_i$ and $\mathbf{A}_i$ are operators that do not commute. The obtained result was derived using a test function.}
+\begin{equation}
+(\mathbf{p}_i + e \mathbf{A}_i)^2 = \mathbf{p}_i^2 
++ \underbrace{e \mathbf{p}_i \cdot\mathbf{A}_i}_{=0}
++ 2 e \mathbf{A}_i \cdot \mathbf{p}_i
++ e^2 \mathbf{A}_i^2 = \mathbf{p}_i^2 
++ 2 e \mathbf{A}_i \cdot \mathbf{p}_i
++ e^2 \mathbf{A}_i^2.
 \end{equation}
 Therefore the total Hamiltonian can be written as $\hat{H} = \hat{H}_0 + \hat{H}_M$, where 
 \begin{equation}
-\hat{H}_0 = \frac{\mathbf{p}^2}{2 m} - e \phi,
+\hat{H}_0 = \sum_i \frac{\mathbf{p}_i^2}{2 m} - e \phi_i,
 \end{equation}
-is the normal atomic Hamiltonian (omitting \emph{e.g.} electron-electron and spin-orbit interactions) and 
+is the electronic part without magnetic interactions and 
 \begin{equation}\label{eq:H_magnetic}
-\hat{H}_M = \frac{e}{m}\mathbf{A}\cdot\mathbf{p} + \frac{e^2 \mathbf{A}^2}{2 m} + \frac{e \hbar}{m} \mathbf{s} \cdot \mathbf{B},
+\hat{H}_M = \sum_i \frac{e}{m}\mathbf{A}_i\cdot\mathbf{p}_i + \frac{e^2 \mathbf{A}_i^2}{2 m} + \frac{e \hbar}{m} \mathbf{s}_i \cdot \mathbf{B}_i,
 \end{equation}
-describes the interaction of electron with an external magnetic field.
+describes the contribution of the magnetic field.
 
 \section{Magnetic energy}
-Now consider an electron bound to an atom, which is put into a homogeneous magnetic field $\mathbf{B}_0$. In this case the vector potential can be chosen so that 
+Omitting the spin-orbit interaction, consider an ion which is put into a homogeneous magnetic field $\mathbf{B}_i = \mathbf{B}_0$. In this case the vector potential can be chosen so that 
 \begin{equation}
-\mathbf{A} = -\frac{1}{2}\mathbf{r} \times \mathbf{B}_0,
+\mathbf{A}_i = -\frac{1}{2}\mathbf{r}_i \times \mathbf{B}_0
 \end{equation}
-where $\mathbf{r}$ is the position vector. Therefore\footnote{Again, the derivation using a test function.}
+Therefore\footnote{Again, the derivation using a test function.}
 \begin{equation}
-\mathbf{A}\cdot\mathbf{p} = 
--\frac{1}{2} \left(\mathbf{r}\times\mathbf{B}_0\right)\cdot \mathbf{p}
-= \frac{1}{2} \mathbf{B}_0 \cdot  \left(\mathbf{r}\times\mathbf{p}\right)
-= \frac{\hbar}{2} \mathbf{B}_0 \cdot  \mathbf{l}, 
+\mathbf{A}_i\cdot\mathbf{p}_i = 
+-\frac{1}{2} \left(\mathbf{r}_i\times\mathbf{B}_0\right)\cdot \mathbf{p}_i
+= \frac{1}{2} \mathbf{B}_0 \cdot  \left(\mathbf{r}_i\times\mathbf{p}_i\right)
+= \frac{\hbar}{2} \mathbf{B}_0 \cdot  \mathbf{l}_i, 
 \end{equation}
-where in the last step we have defined a unitless orbital angular momentum operator $\hbar \mathbf{l} = \mathbf{r}\times\mathbf{p}$. Without the loss of generality, we may choose $z$-axis to be parallel with $\mathbf{B}_0$. Thus
+where in the last step we have defined a unitless orbital angular momentum operator $\hbar \mathbf{l}_i = \mathbf{r}_i\times\mathbf{p}_i$. Without the loss of generality, we may choose $z$-axis to be parallel with $\mathbf{B}_0$. Thus
 \begin{equation}
-\mathbf{A}\cdot\mathbf{p} = \frac{\hbar B_0}{2} l_z,
+\mathbf{A}_i\cdot\mathbf{p}_i = \frac{\hbar B_0}{2} l_{z,i},
 \end{equation}
-where $l_z$ is the $z$-component of $\mathbf{l}$. Similarly
+where $l_{z,i}$ is the $z$-component of $\mathbf{l}_i$. Similarly
 \begin{equation}
-\mathbf{A}^2 = \frac{1}{4} (\mathbf{r} \times \mathbf{B}_0)^2 =
-\frac{1}{4} (yB_0\hat{\mathbf{x}} - xB_0\hat{\mathbf{y}} )^2 = \frac{B_0^2}{4}(x^2+y^2)
+\mathbf{A}_i^2 = \frac{1}{4} (\mathbf{r}_i \times \mathbf{B}_0)^2 =
+\frac{1}{4} (y_iB_0\hat{\mathbf{x}} - x_iB_0\hat{\mathbf{y}} )^2 = \frac{B_0^2}{4}(x_i^2+y_i^2)
 \end{equation}
-Substituting the derived expressions for $\mathbf{A}\cdot\mathbf{p}$ and $\mathbf{A}^2$, and $\mathbf{S}\cdot\mathbf{B} = B_0 S_z$ into Eq.~\eqref{eq:H_magnetic}, we obtain
+Substituting the derived expressions for $\mathbf{A}_i\cdot\mathbf{p}_i$ and $\mathbf{A}_i^2$, and $\mathbf{s}_i\cdot\mathbf{B}_i = B_0 s_{z,i}$ into Eq.~\eqref{eq:H_magnetic}, we obtain
 \begin{equation}
-\hat{H}_M = \frac{e \hbar B_0}{2m}l_z + \frac{e^2 B_0^2}{8 m} (x^2 + y^2) + 
-\frac{e \hbar B_0}{m} s_z.
+\hat{H}_M = \sum_i \frac{e \hbar B_0}{2m}l_{z,i} + \frac{e^2 B_0^2}{8 m} (x_i^2 + y_i^2) + 
+\frac{e \hbar B_0}{m} s_{z,i}.
 \end{equation}
 We may simplify the result by defining Bohr magneton 
 \begin{equation}
@@ -92,14 +102,10 @@ We may simplify the result by defining Bohr magneton
 \end{equation}
 Thus
 \begin{equation}
-\hat{H}_M = \mu_B B_0 (l_z + 2 s_z) + \frac{e^2 B_0^2}{8 m} (x^2 + y^2)
+\hat{H}_M = \mu_B B_0 (L_z + 2 S_z) + \frac{e^2 B_0^2}{8 m} \sum_i (x_i^2 + y_i^2),
 \end{equation}
+where $L = \sum_i l_{z,i}$ and $S = \sum_i s_{z,i}$ are the $z$-components of the total orbital angular momentum and spin angular momentum operators $\mathbf{L}$ and $\mathbf{S}$, respectively.
 
-The obtained interaction Hamiltonian $\bar{H}_M$ is derived for single atom. Assuming that the spin-orbit interaction is weak compared to the Coulombic interaction between the atom core and the electron (\emph{i.e.} the Russel-Saunders coupling), we may generalize the result for the whole atom by summing over all the electrons. Therefore we obtain
-\begin{equation}
-\hat{H}_M = \underbrace{\mu_B B_0 (L_z + 2 S_z)}_{\mathrm{Paramagnetic \ term}} + \underbrace{\frac{e^2 B_0^2}{8 m} \sum_i (x_i^2 + y_i^2)}_{\mathrm{Diamagnetic \ term}},
-\end{equation}
-where $L = \sum_i l_{z,i}$ and $S = \sum_i s_{z,i}$ are the $z$-components of the total orbital angular momentum and spin angular momentum operators.
 
 Since magnetic energy is rather small compared to the energy of an unperturbed atom, we may obtain it by using the perturbation theory. Up to the first order the magnetic energy is
 \begin{equation}\label{eq:E_magnetic}
