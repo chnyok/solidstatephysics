@@ -1,0 +1,194 @@
+%\documentclass[12pt,a4paper]{article}
+%\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{graphicx}
+%\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=4cm]{geometry}
+%\author{Ari-Pekka Honkanen}
+%\title{Notes on Magnetism}
+%\linespread{1.3}
+
+%\begin{document}
+%\maketitle
+\section{Pauli equation}
+A suitable starting point to investigate magnetism in atomic systems is the Pauli equation, which describes the dynamics of a non-relativistic spin-1/2 particle in an electromagnetic field. The for electron with the mass $q$ and the charge $-e$ the standard form of the time-independent equation is
+\begin{equation}
+\left[\frac{(\mathbf{p} + e \mathbf{A})^2}{2m} + \frac{e \hbar}{m} \mathbf{s} \cdot \mathbf{B} - e \phi \right] | \psi \rangle = E | \psi \rangle,
+\end{equation}
+where $\phi$ is the electric scalar potential, $\mathbf{A}$ is the (unquantized) vector potential, the magnetic field $B=\nabla \times \mathbf{A}$ and $\mathbf{s} = (s_x,s_y,s_z)$ are the components of the (unitless) spin-1/2 operator. Quite often $s_i$ are given in terms of Pauli matrices:
+\begin{equation}
+s_x = \frac{1}{2}\left( \begin{matrix}
+0 & 1 \\
+1 & 0 
+\end{matrix} \right)
+\qquad 
+s_y = \frac{1}{2}\left( \begin{matrix}
+0 & -i \\
+i & 0 
+\end{matrix} \right) 
+\qquad
+s_z = \frac{1}{2}\left( \begin{matrix}
+1 & 0 \\
+0 & 1 
+\end{matrix} \right).
+\end{equation}
+In such a representation the state $| \psi \rangle$ is represented by a two-component spinor
+\begin{equation}
+| \psi \rangle = \left( \begin{matrix} \psi_+ \\ \psi_- \end{matrix} \right) =
+\psi_+ |\uparrow \rangle + \psi_- | \downarrow \rangle
+.
+\end{equation}
+Assuming that $\mathbf{A}$ is in Coulomb gauge \emph{i.e.} $\nabla \cdot \mathbf{A} = 0$, we may expand\footnote{Here we must remember that we are dealing with operators that do not commute. The following result is derived using a test function.}
+\begin{equation}
+(\mathbf{p} + e \mathbf{A})^2 = \mathbf{p}^2 
++ \underbrace{e \mathbf{p} \cdot\mathbf{A}}_{=0}
++ 2 e \mathbf{A} \cdot \mathbf{p}
++ e^2 \mathbf{A}^2 = \mathbf{p}^2 
++ 2 e \mathbf{A} \cdot \mathbf{p}
++ e^2 \mathbf{A}^2.
+\end{equation}
+Therefore the total Hamiltonian can be written as $\hat{H} = \hat{H}_0 + \hat{H}_M$, where 
+\begin{equation}
+\hat{H}_0 = \frac{\mathbf{p}^2}{2 m} - e \phi,
+\end{equation}
+is the normal atomic Hamiltonian (omitting \emph{e.g.} electron-electron and spin-orbit interactions) and 
+\begin{equation}\label{eq:H_magnetic}
+\hat{H}_M = \frac{e}{m}\mathbf{A}\cdot\mathbf{p} + \frac{e^2 \mathbf{A}^2}{2 m} + \frac{e \hbar}{m} \mathbf{s} \cdot \mathbf{B},
+\end{equation}
+describes the interaction of electron with an external magnetic field.
+
+\section{Magnetic energy}
+Now consider an electron bound to an atom, which is put into a homogeneous magnetic field $\mathbf{B}_0$. In this case the vector potential can be chosen so that 
+\begin{equation}
+\mathbf{A} = -\frac{1}{2}\mathbf{r} \times \mathbf{B}_0,
+\end{equation}
+where $\mathbf{r}$ is the position vector. Therefore\footnote{Again, the derivation using a test function.}
+\begin{equation}
+\mathbf{A}\cdot\mathbf{p} = 
+-\frac{1}{2} \left(\mathbf{r}\times\mathbf{B}_0\right)\cdot \mathbf{p}
+= \frac{1}{2} \mathbf{B}_0 \cdot  \left(\mathbf{r}\times\mathbf{p}\right)
+= \frac{\hbar}{2} \mathbf{B}_0 \cdot  \mathbf{l}, 
+\end{equation}
+where in the last step we have defined a unitless orbital angular momentum operator $\hbar \mathbf{l} = \mathbf{r}\times\mathbf{p}$. Without the loss of generality, we may choose $z$-axis to be parallel with $\mathbf{B}_0$. Thus
+\begin{equation}
+\mathbf{A}\cdot\mathbf{p} = \frac{\hbar B_0}{2} l_z,
+\end{equation}
+where $l_z$ is the $z$-component of $\mathbf{l}$. Similarly
+\begin{equation}
+\mathbf{A}^2 = \frac{1}{4} (\mathbf{r} \times \mathbf{B}_0)^2 =
+\frac{1}{4} (yB_0\hat{\mathbf{x}} - xB_0\hat{\mathbf{y}} )^2 = \frac{B_0^2}{4}(x^2+y^2)
+\end{equation}
+Substituting the derived expressions for $\mathbf{A}\cdot\mathbf{p}$ and $\mathbf{A}^2$, and $\mathbf{S}\cdot\mathbf{B} = B_0 S_z$ into Eq.~\eqref{eq:H_magnetic}, we obtain
+\begin{equation}
+\hat{H}_M = \frac{e \hbar B_0}{2m}l_z + \frac{e^2 B_0^2}{8 m} (x^2 + y^2) + 
+\frac{e \hbar B_0}{m} s_z.
+\end{equation}
+We may simplify the result by defining Bohr magneton 
+\begin{equation}
+\mu_B = \frac{e \hbar}{2 m} = 5.788 \cdot 10^{-5}\ \frac{\mathrm{eV}}{\mathrm{T}} 
+= 9.274 \cdot 10^{-24}\ \frac{\mathrm{J}}{\mathrm{T}} .
+\end{equation}
+Thus
+\begin{equation}
+\hat{H}_M = \mu_B B_0 (l_z + 2 s_z) + \frac{e^2 B_0^2}{8 m} (x^2 + y^2)
+\end{equation}
+
+The obtained interaction Hamiltonian $\bar{H}_M$ is derived for single atom. Assuming that the spin-orbit interaction is weak compared to the Coulombic interaction between the atom core and the electron (\emph{i.e.} the Russel-Saunders coupling), we may generalize the result for the whole atom by summing over all the electrons. Therefore we obtain
+\begin{equation}
+\hat{H}_M = \underbrace{\mu_B B_0 (L_z + 2 S_z)}_{\mathrm{Paramagnetic \ term}} + \underbrace{\frac{e^2 B_0^2}{8 m} \sum_i (x_i^2 + y_i^2)}_{\mathrm{Diamagnetic \ term}},
+\end{equation}
+where $L = \sum_i l_{z,i}$ and $S = \sum_i s_{z,i}$ are the $z$-components of the total orbital angular momentum and spin angular momentum operators.
+
+Since magnetic energy is rather small compared to the energy of an unperturbed atom, we may obtain it by using the perturbation theory. Up to the first order the magnetic energy is
+\begin{equation}\label{eq:E_magnetic}
+\Delta E_M = \mu_B B_0 \langle \psi | L_z + 2 S_z | \psi \rangle 
++ \frac{e^2 B_0^2}{8 m}\sum_i \langle \psi | x_i^2 + y_i^2 | \psi \rangle
+\end{equation} 
+If we deal with ions with a one electron short being half filled shell, or molecules that do not have an axis of symmetry parallel to the magnetic field, we have to include also the second order contribution
+\begin{equation}
+\sum_{\psi' \neq \psi} \frac{|\langle \psi | L_z + 2 S_z | \psi' \rangle|^2}{E_\psi - E_{\psi'}},
+\end{equation}
+where the sum goes over all the exited states. This term is the source of so called \emph{Van Vleck paramagnetism} which will not be consider further in these notes.
+
+\section{Magnetization and thermodynamics}
+The magnetization $\mathbf{M}$ connects the magnetic flux density $\mathbf{B}$ and the magnetic field strength $\mathbf{H}$ as follows
+\begin{equation}
+\mathbf{B}= \mu_0(\mathbf{H}+\mathbf{M}),
+\end{equation}
+where $\mu_0 = 4\pi \cdot 10^{-7}$~H/m is the permeability of the vacuum. The quantity which is the measure of "magnitisability" of the material as a response to an external field is known as the magnetic susceptibility $\chi$, which can be defined as\footnote{Here $\chi$ is a scalar quantity but in general it can be a tensor $\chi_{ij} = \partial M_i/\partial H_j$}
+\begin{equation}
+\chi = \frac{\partial M}{\partial H}
+\end{equation}
+We now take a brief tour into thermodynamics because it is a necessary tool for calculating the magnetic properties. The partition function $Z$ is defined as
+\begin{equation}
+Z =  \sum_{n} e^{-E_n/k_B T}.
+\end{equation} 
+Since the magnetic energy is given by $E=-\mathbf{m}\cdot\mathbf{B}=-m_zB_0$, we find that
+\begin{equation}
+\frac{\partial Z}{\partial B_0} = \sum_{n} -\frac{1}{k_B T} e^{-E_n/k_B T} \frac{\partial E_n}{\partial B_0} =  \frac{1}{k_B T} \sum_{n} m_{z,n} e^{-E_n/k_B T}.
+\end{equation}
+Thus the magnetization of the system is
+\begin{equation}
+M = \frac{\langle m_z\rangle}{V} = \frac{1}{V}\frac{k_B T}{Z} \frac{\partial Z}{\partial B_0}
+\end{equation}
+Since the Helmholtz energy $A = - k_B T \ln Z$, the former can be simplified
+to
+\begin{equation}
+M = \frac{\langle m_z\rangle}{V} = - \frac{1}{V} \frac{\partial A}{\partial B_0}.
+\end{equation}
+Thus the magnetic susceptibility can be obtain from $A$ as follows
+\begin{equation}
+\chi = \frac{\partial M}{\partial H} =  - \frac{1}{V} \frac{\partial^2 A}{\partial H \partial B_0}.
+\end{equation}
+If $\chi$ is small, then $\mathbf{B} \approx \mu_0 \mathbf{H}$ and we get
+\begin{equation}
+\chi = \frac{\partial M}{\partial H} =  - \frac{\mu_0}{V} \frac{\partial^2 A}{\partial B_0^2}
+\end{equation}
+
+\section{Diamagnetism}
+Consider an ion which contains only filled shells. For such an ion $L^2|\psi\rangle = S^2|\psi\rangle = 0$ and thus the magnetic energy \eqref{eq:E_magnetic} becomes
+\begin{equation}
+\Delta E_M = \frac{e^2 B_0^2}{8 m}\sum_i \langle \psi | x_i^2 + y_i^2 | \psi \rangle.
+\end{equation}
+In low temperatures, only the ground state of the system is populated: the Helmholtz energy of $N$ ions is simply $A = N\Delta E_M$. Therefore the susceptibility of such ions in the volume $V$ is
+\begin{equation}
+\chi = -\frac{\mu_0 N}{V} \frac{\partial^2 \Delta E_M}{\partial B_0^2}
+= -\frac{N}{V} \frac{\mu_0 e^2}{4 m}\sum_i \langle \psi | x_i^2 + y_i^2 | \psi \rangle.
+\end{equation}
+Since the shells are filled, we may assume that the ion is spherically symmetric, thus $\langle \psi | x_i^2| \psi \rangle = \langle \psi | y_i^2 | \psi \rangle = \frac{1}{3} \langle \psi | r_i^2| \psi \rangle $. Furthermore, we may write $\sum_i \langle \psi | r_i^2| \psi \rangle = Z_{e} r^2$, where $Z_{e}$ is the number of electrons and $r$ is the effective ionic radius. Thus the susceptibility becomes
+\begin{equation}
+\chi_{dia} =  -\frac{N}{V} \frac{\mu_0  e^2}{12 m} Z_{e} r^2.
+\end{equation}
+The susceptibility caused by this term is negative, so it goes against the applied magnetic field. Thus it is fitting to call the macroscopic magnetic response \emph{diamagnetic}\footnote{\emph{dia} = against, across}. More specifically, the derived term is known as the \emph{Larmor diamagnetism}.
+
+
+\section{Total angular momentum $J$}
+
+Consider a system where orbital and spin angular momenta are decoupled from each other. The states of such a system are consequently the eigenstates of operators $\mathbf{L}^2$, $\mathbf{S}^2$, $L_z$, and  $S_z$. Thus the states can be characterised by the quantum numbers $L$, $S$, $m_L$, and $m_S$  or $|LSm_Lm_S\rangle$. However, the situation changes if we add in spin-orbit interaction. Let the Hamiltonian be 
+\begin{equation}
+\hat{H} = \hat{H}_0 + \lambda \mathbf{L} \cdot \mathbf{S},
+\end{equation}
+where $\hat{H}_0$ is the part of the Hamiltonian in which $\mathbf{L}$ and $\mathbf{S}$ are disconnected. Since $\mathbf{L}$ and $\mathbf{S}$ commute, we may write $\mathbf{L} \cdot \mathbf{S} = L_x S_x + L_y S_y + L_z S_z$. This is where the problem arises. Whereas $|LSm_Lm_S\rangle$ is an eigenstate for $L_z$ and $S_z$ operators, it not so for $x$- and $y$-components. Thus the magnetic quantum numbers $m_L$ and $m_S$ are not good quantum numbers for describing the eigenstates of LS-coupled system.
+
+For that we define the total angular momentum operator 
+\begin{equation}
+\mathbf{J} = \mathbf{L} + \mathbf{S}.
+\end{equation}
+Since $\mathbf{L}$ and  $\mathbf{S}$ commute, also $\mathbf{J}$ commutes with them. This means that an eigenstate of $\mathbf{L}^2$ and $\mathbf{S}^2$ is also an eigenstate of $\mathbf{J}^2$. It can also be shown that such an eigenstate is also an eigenstate of $J_z$ labelled by $m_J$. Since $J_z = L_z + S_z$ it is easy to see that the state $|LSm_Lm_S\rangle$ is also an eigenstate of $J_z$. However, \emph{the converse is not true}.
+
+Now since $\mathbf{J}^2 = \mathbf{L}^2 + 2\mathbf{L} \cdot \mathbf{S} + \mathbf{S}^2$, we find that
+\begin{equation}
+\lambda \mathbf{L} \cdot \mathbf{S} = \frac{\lambda}{2}(\mathbf{J}^2-\mathbf{L}^2-\mathbf{S}^2 )
+\end{equation}
+Therefore we arrive at the conclusion that the good quantum numbers describing the LS-coupled system are $J$, $L$, $S$, and $m_J$.
+
+%\section{Total magnetic momentum $\mu_J$}
+
+\bibliographystyle{plain}
+\bibliography{magnetism/refs}
+ 
+\nocite{ashcroftmermin,blundell_book}
+
+\end{document}
