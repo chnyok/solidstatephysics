@@ -172,11 +172,32 @@ The susceptibility caused by this term is negative, so it goes against the appli
 
 \section{Total angular momentum $J$}
 
-Consider a system where orbital and spin angular momenta are decoupled from each other. The states of such a system are consequently the eigenstates of operators $\mathbf{L}^2$, $\mathbf{S}^2$, $L_z$, and  $S_z$. Thus the states can be characterised by the quantum numbers $L$, $S$, $m_L$, and $m_S$  or $|LSm_Lm_S\rangle$. However, the situation changes if we add in spin-orbit interaction. Let the Hamiltonian be 
+Consider a system where orbital and spin angular momenta are decoupled from each other. The states of such a system are consequently the eigenstates of operators $\mathbf{L}^2$, $\mathbf{S}^2$, $L_z$, and  $S_z$. Thus the states can be characterised by the quantum numbers $L$, $S$, $m_L$, and $m_S$  or $|LSm_Lm_S\rangle$. However, the situation changes if we add in spin-orbit interaction, $\Hat{H}_{\rm SO}$. 
+\begin{align}
+\hat{H} &= \hat{H}_0 + \Hat{H}_{\rm SO}\\
+\Hat{H}_{\rm SO} &= \sum_i\xi_i(r) \mathbf{l}_i \cdot \mathbf{s}_i\\
+\xi(r) &= \frac{\hbar^2}{2m^2c^2r}\frac{\partial U(r)}{\partial r},
+\end{align}
+where $\hat{H}_0$ is the part of the Hamiltonian in which $\mathbf{l}_i$ and $\mathbf{s}_i$ are disconnected.
+
+Given the radial function $R_{n,l}(\mathbf(r))$ of a single electron state, we define the single electron SOC constant 
 \begin{equation}
-\hat{H} = \hat{H}_0 + \lambda \mathbf{L} \cdot \mathbf{S},
+\zeta_{n,l} = \hbar^2\int_0^\infty r^2\mathrm{d}\mathbf{r}~|R_n,l(\mathbf{r})|^2\xi(\mathbf{r})
 \end{equation}
-where $\hat{H}_0$ is the part of the Hamiltonian in which $\mathbf{L}$ and $\mathbf{S}$ are disconnected. Since $\mathbf{L}$ and $\mathbf{S}$ commute, we may write $\mathbf{L} \cdot \mathbf{S} = L_x S_x + L_y S_y + L_z S_z$. This is where the problem arises. Whereas $|LSm_Lm_S\rangle$ is an eigenstate for $L_z$ and $S_z$ operators, it not so for $x$- and $y$-components. Thus the magnetic quantum numbers $m_L$ and $m_S$ are not good quantum numbers for describing the eigenstates of LS-coupled system.
+and in a Coulombic potential
+\begin{equation}
+\zeta_{n,l}  = \frac{e^2\hbar^2}{8\pi\epsilon_0m^2c^2a_0^2}\frac{Z_{\rm eff}^4}{n^3l(l+1)(l+\frac{1}{2})}
+\end{equation}
+which provides a good guideline for when the spin-orbit effect is most significant.
+
+A useful result due to Condon and Shortley (Mabbs \& Machin: magnetism and transition metal complexes) is that, within a single shell 
+\begin{align}
+E_{\rm SO}  &\equiv \langle LSm_Lm_S|H_{SO}|LSm_Lm_S\rangle = \Lambda \langle LSm_Lm_S|\mathbf{L}\cdot\mathbf{S}|LSm_Lm_S\rangle
+\end{align}
+
+The constant of proportionality $\Lambda$ is called the \textit{term} spin-orbit coupling (SOC) constant, and is the more directly measurable quantity, but the inferred single electron SOC constant is a property shared with other configurations.
+
+Since $\mathbf{L}$ and $\mathbf{S}$ commute, we may write $\mathbf{L} \cdot \mathbf{S} = L_x S_x + L_y S_y + L_z S_z$. This is where the problem arises. Whereas $|LSm_Lm_S\rangle$ is an eigenstate for $L_z$ and $S_z$ operators, it not so for $x$- and $y$-components. Thus the magnetic quantum numbers $m_L$ and $m_S$ are not good quantum numbers for describing the eigenstates of LS-coupled system.
 
 For that we define the total angular momentum operator 
 \begin{equation}
