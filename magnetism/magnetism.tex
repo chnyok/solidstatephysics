@@ -95,7 +95,7 @@ Substituting the derived expressions for $\mathbf{A}_i\cdot\mathbf{p}_i$ and $\m
 \hat{H}_M = \sum_i \frac{e \hbar B_0}{2m}l_{z,i} + \frac{e^2 B_0^2}{8 m} (x_i^2 + y_i^2) + 
 \frac{e \hbar B_0}{m} s_{z,i}.
 \end{equation}
-We may simplify the result by defining Bohr magneton 
+We may simplify the result by defining the Bohr magneton 
 \begin{equation}
 \mu_B = \frac{e \hbar}{2 m} = 5.788 \cdot 10^{-5}\ \frac{\mathrm{eV}}{\mathrm{T}} 
 = 9.274 \cdot 10^{-24}\ \frac{\mathrm{J}}{\mathrm{T}} .
@@ -171,7 +171,11 @@ The susceptibility caused by this term is negative, so it goes against the appli
 
 
 \section{Total angular momentum $J$}
-
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{magnetism/figures/angular_momenta_sums}
+\caption{The effect of the LS-coupling to the summation of the angular momenta.\label{fig:angular_momenta_sums}}
+\end{figure}
 Consider a system where orbital and spin angular momenta are decoupled from each other. The states of such a system are consequently the eigenstates of operators $\mathbf{L}^2$, $\mathbf{S}^2$, $L_z$, and  $S_z$. Thus the states can be characterised by the quantum numbers $L$, $S$, $m_L$, and $m_S$  or $|LSm_Lm_S\rangle$. However, the situation changes if we add in spin-orbit interaction, $\Hat{H}_{\rm SO}$. 
 \begin{align}
 \hat{H} &= \hat{H}_0 + \Hat{H}_{\rm SO}\\
@@ -211,8 +215,47 @@ Now since $\mathbf{J}^2 = \mathbf{L}^2 + 2\mathbf{L} \cdot \mathbf{S} + \mathbf{
 \end{equation}
 Therefore we arrive at the conclusion that the good quantum numbers describing the LS-coupled system are $J$, $L$, $S$, and $m_J$.
 
-%\section{Total magnetic momentum $\mu_J$}
+\section{Magnetic moment $\mu_J$ and Land\'{e} g-factor}
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{magnetism/figures/mu_J}
+\caption{Summation of the orbital and spin magnetic moments\label{fig:mu_J}}
+\end{figure}
+
+What is the magnetic moment associated with the total angular momentum then? [HERE THE FIGURE DEPICTING THE SUMMATION OF MAGNETIC MOMENTS]
+
+
+Thus the expectation value of the magnetic momentum $\boldsymbol{\mu}$ is equal to the component of the magnetic moment $\boldsymbol{\mu}_J$ along $\mathbf{J}$, \emph{i.e.}
+\begin{equation}
+\langle JLSm_J|\boldsymbol{\mu}|JLSm_J\rangle
+= \langle JLSm_J|\boldsymbol{\mu}_J|JLSm_J\rangle
+\end{equation}
+Therefore it also holds that 
+\begin{equation}\label{eq:mu_dot_J}
+\langle JLSm_J|\boldsymbol{\mu}\cdot\mathbf{J}|JLSm_J\rangle
+= \langle JLSm_J|\boldsymbol{\mu}_J\cdot\mathbf{J}|JLSm_J\rangle
+\end{equation}
+Since $\boldsymbol{\mu}_J \| \mathbf{J}$, we may write
+\begin{equation}
+\boldsymbol{\mu}_J = - g_J \mu_B \mathbf{J},
+\end{equation}
+where $g_J$ is the \emph{Land\'{e} g-factor} which can be interpreted as the effective number of Bohr magnetons pointing at the direction of $\mathbf{J}$. Now the right hand side of Eq.~\eqref{eq:mu_dot_J} becomes
+\begin{equation}
+\langle JLSm_J|\boldsymbol{\mu}_J\cdot\mathbf{J}|JLSm_J\rangle = - g_J \mu_B \langle JLSm_J|\mathbf{J}^2 |JLSm_J\rangle = - g_J \mu_B J(J+1) \label{eq:r_mu_dot_J}
+\end{equation}
+Similarly, since $\boldsymbol{\mu} = - \mu_B (\mathbf{L} + 2 \mathbf{S}) = - \mu_B (\mathbf{J} + \mathbf{S})$, the left hand side of Eq.~\eqref{eq:mu_dot_J} becomes
+\begin{align}
+\langle JLSm_J|\boldsymbol{\mu}_J\cdot\mathbf{J}|JLSm_J\rangle &= - \mu_B \langle JLSm_J|\mathbf{J}^2+\mathbf{S}^2+\mathbf{S}\cdot\mathbf{L}|JLSm_J\rangle
+\nonumber \\
+&= - \mu_B \frac{1}{2} \langle JLSm_J|3 \mathbf{J}^2+ \mathbf{S}^2-  \mathbf{L}^2|JLSm_J\rangle 
+\nonumber \\
+&= - \mu_B \frac{3J(J+1)+S(S+1)-L(L+1)}{2}, \label{eq:l_mu_dot_J}
+\end{align}
+where $\mathbf{J}^2 = \mathbf{L}^2 + 2\mathbf{L} \cdot \mathbf{S} + \mathbf{S}^2$ has been used. Thus by combining the Equations~\eqref{eq:r_mu_dot_J} and \eqref{eq:r_mu_dot_J} we find that the Land\'{e} g-factor is
+\begin{equation}
+g_L = \frac{3}{2} + \frac{S(S+1)-L(L+1)}{2J(J+1)}
+\end{equation}
 \bibliographystyle{plain}
 \bibliography{magnetism/refs}
  
