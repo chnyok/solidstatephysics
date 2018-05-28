@@ -123,7 +123,7 @@ The magnetization $\mathbf{M}$ connects the magnetic flux density $\mathbf{B}$ a
 \begin{equation}
 \mathbf{B}= \mu_0(\mathbf{H}+\mathbf{M}),
 \end{equation}
-where $\mu_0 = 4\pi \cdot 10^{-7}$~H/m is the permeability of the vacuum. The quantity which is the measure of "magnitisability" of the material as a response to an external field is known as the magnetic susceptibility $\chi$, which can be defined as\footnote{Here $\chi$ is a scalar quantity but in general it can be a tensor $\chi_{ij} = \partial M_i/\partial H_j$}
+where $\mu_0 = 4\pi \cdot 10^{-7}$~H/m is the permeability of the vacuum. The quantity which is the measure of "magnetisability" of the material as a response to an external field is known as the magnetic susceptibility $\chi$, which can be defined as\footnote{Here $\chi$ is a scalar quantity but in general it can be a tensor $\chi_{ij} = \partial M_i/\partial H_j$}
 \begin{equation}
 \chi = \frac{\partial M}{\partial H}
 \end{equation}
@@ -171,49 +171,60 @@ The susceptibility caused by this term is negative, so it goes against the appli
 
 
 \section{Total angular momentum $J$}
-\begin{figure}[h!]
+Consider a system where orbital and spin angular momenta are decoupled from each other. The states of such a system are consequently the eigenstates of operators $\mathbf{L}^2$, $\mathbf{S}^2$, $L_z$, and  $S_z$. Thus the states can be characterised by the quantum numbers $L$, $S$, $m_L$, and $m_S$  or $|LSm_Lm_S\rangle$. 
+However, the situation changes if we add in the spin-orbit interaction. If the interaction strength is weak compared to the Coulomb interaction, we may consider its effect as a small perturbation. Therefore we may still use the $L$ and $S$ as the good quantum numbers. However, the same does not apply to $m_L$ and $m_S$. 
+
+In absence of the spin-orbit coupling, the directions of $\mathbf{L}$ and $\mathbf{S}$ are independent allowing the determination of their $z$-components  simultaneously. On the other hand, introducing the spin-orbit interaction Hamiltonian of the form
+\begin{equation}
+\hat{H}_{LS} = \Lambda \mathbf{L}\cdot\mathbf{S}
+\end{equation}
+fixes the angle between $\mathbf{L}$ and $\mathbf{S}$ owing to which the energy eigenstates are no longer eigenstates of $L_z$ and $S_z$. Stated in more mathematical terms, we may write $\mathbf{L} \cdot \mathbf{S} = L_x S_x + L_y S_y + L_z S_z$ since $\mathbf{L}$ and $\mathbf{S}$ commute. Whereas $|LSm_Lm_S\rangle$ is an eigenstate for $L_z$ and $S_z$ operators, it not so for $x$- and $y$-components. Thus the magnetic quantum numbers $m_L$ and $m_S$ are not good quantum numbers for describing the eigenstates of LS-coupled system.
+
+
+%However, the situation changes if we add in spin-orbit interaction, $\Hat{H}_{\rm SO}$. 
+%\begin{align}
+%\hat{H} &= \hat{H}_0 + \Hat{H}_{\rm SO}\\
+%\Hat{H}_{\rm SO} &= \sum_i\xi_i(r) \mathbf{l}_i \cdot \mathbf{s}_i\\
+%\xi(r) &= \frac{\hbar^2}{2m^2c^2r}\frac{\partial U(r)}{\partial r},
+%\end{align}
+%where $\hat{H}_0$ is the part of the Hamiltonian in which $\mathbf{l}_i$ and $\mathbf{s}_i$ are disconnected.
+
+%Given the radial function $R_{n,l}(\mathbf(r))$ of a single electron state, we define the single electron SOC constant 
+%\begin{equation}
+%\zeta_{n,l} = \hbar^2\int_0^\infty r^2\mathrm{d}\mathbf{r}~|R_n,l(\mathbf{r})|^2\xi(\mathbf{r})
+%\end{equation}
+%and in a Coulombic potential
+%\begin{equation}
+%\zeta_{n,l}  = \frac{e^2\hbar^2}{8\pi\epsilon_0m^2c^2a_0^2}\frac{Z_{\rm eff}^4}{n^3l(l+1)(l+\frac{1}{2})}
+%\end{equation}
+%which provides a good guideline for when the spin-orbit effect is most significant.
+
+%A useful result due to Condon and Shortley (Mabbs \& Machin: magnetism and transition metal complexes) is that, within a single shell 
+%\begin{align}
+%E_{\rm SO}  &\equiv \langle LSm_Lm_S|H_{SO}|LSm_Lm_S\rangle = \Lambda \langle LSm_Lm_S|\mathbf{L}\cdot\mathbf{S}|LSm_Lm_S\rangle
+%\end{align}
+
+%The constant of proportionality $\Lambda$ is called the \textit{term} spin-orbit coupling (SOC) constant, and is the more directly measurable quantity, but the inferred single electron SOC constant is a property shared with other configurations.
+
+%Since $\mathbf{L}$ and $\mathbf{S}$ commute, we may write $\mathbf{L} \cdot \mathbf{S} = L_x S_x + L_y S_y + L_z S_z$. This is where the problem arises. Whereas $|LSm_Lm_S\rangle$ is an eigenstate for $L_z$ and $S_z$ operators, it not so for $x$- and $y$-components. Thus the magnetic quantum numbers $m_L$ and $m_S$ are not good quantum numbers for describing the eigenstates of LS-coupled system.
+
+To tackle the problem, we define the total angular momentum operator 
+\begin{equation}
+\mathbf{J} = \mathbf{L} + \mathbf{S}.
+\end{equation}
+Since $\mathbf{L}$ and  $\mathbf{S}$ commute, also $\mathbf{J}$ commutes with them. This means that an eigenstate of $\mathbf{L}^2$ and $\mathbf{S}^2$ is also an eigenstate of $\mathbf{J}^2$. It can also be shown that such an eigenstate is also an eigenstate of $J_z$ labelled by $m_J$. Since $J_z = L_z + S_z$ it is easy to see that the state $|LSm_Lm_S\rangle$ is also an eigenstate of $J_z$. However, \emph{the converse is not true}. This is illustrated in Figure~\ref{fig:angular_momenta_sums}.
+
+Now since $\mathbf{J}^2 = \mathbf{L}^2 + 2\mathbf{L} \cdot \mathbf{S} + \mathbf{S}^2$, we find that the interaction Hamiltonian $\hat{H}_{LS}$
+\begin{equation}
+\Lambda \mathbf{L} \cdot \mathbf{S} = \frac{\Lambda}{2}(\mathbf{J}^2-\mathbf{L}^2-\mathbf{S}^2 )
+\end{equation}
+which is conformant with the earlier argument that for the weak spin-orbit coupling the eigenstates are still the eigenstates of $\mathbf{L}^2$ and $\mathbf{S}^2$. Therefore we arrive at the conclusion that the good quantum numbers describing the LS-coupled system are $J$, $L$, $S$, and $m_J$. 
+
+\begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{magnetism/figures/angular_momenta_sums}
 \caption{The effect of the LS-coupling to the summation of the angular momenta.\label{fig:angular_momenta_sums}}
 \end{figure}
-Consider a system where orbital and spin angular momenta are decoupled from each other. The states of such a system are consequently the eigenstates of operators $\mathbf{L}^2$, $\mathbf{S}^2$, $L_z$, and  $S_z$. Thus the states can be characterised by the quantum numbers $L$, $S$, $m_L$, and $m_S$  or $|LSm_Lm_S\rangle$. However, the situation changes if we add in spin-orbit interaction, $\Hat{H}_{\rm SO}$. 
-\begin{align}
-\hat{H} &= \hat{H}_0 + \Hat{H}_{\rm SO}\\
-\Hat{H}_{\rm SO} &= \sum_i\xi_i(r) \mathbf{l}_i \cdot \mathbf{s}_i\\
-\xi(r) &= \frac{\hbar^2}{2m^2c^2r}\frac{\partial U(r)}{\partial r},
-\end{align}
-where $\hat{H}_0$ is the part of the Hamiltonian in which $\mathbf{l}_i$ and $\mathbf{s}_i$ are disconnected.
-
-Given the radial function $R_{n,l}(\mathbf(r))$ of a single electron state, we define the single electron SOC constant 
-\begin{equation}
-\zeta_{n,l} = \hbar^2\int_0^\infty r^2\mathrm{d}\mathbf{r}~|R_n,l(\mathbf{r})|^2\xi(\mathbf{r})
-\end{equation}
-and in a Coulombic potential
-\begin{equation}
-\zeta_{n,l}  = \frac{e^2\hbar^2}{8\pi\epsilon_0m^2c^2a_0^2}\frac{Z_{\rm eff}^4}{n^3l(l+1)(l+\frac{1}{2})}
-\end{equation}
-which provides a good guideline for when the spin-orbit effect is most significant.
-
-A useful result due to Condon and Shortley (Mabbs \& Machin: magnetism and transition metal complexes) is that, within a single shell 
-\begin{align}
-E_{\rm SO}  &\equiv \langle LSm_Lm_S|H_{SO}|LSm_Lm_S\rangle = \Lambda \langle LSm_Lm_S|\mathbf{L}\cdot\mathbf{S}|LSm_Lm_S\rangle
-\end{align}
-
-The constant of proportionality $\Lambda$ is called the \textit{term} spin-orbit coupling (SOC) constant, and is the more directly measurable quantity, but the inferred single electron SOC constant is a property shared with other configurations.
-
-Since $\mathbf{L}$ and $\mathbf{S}$ commute, we may write $\mathbf{L} \cdot \mathbf{S} = L_x S_x + L_y S_y + L_z S_z$. This is where the problem arises. Whereas $|LSm_Lm_S\rangle$ is an eigenstate for $L_z$ and $S_z$ operators, it not so for $x$- and $y$-components. Thus the magnetic quantum numbers $m_L$ and $m_S$ are not good quantum numbers for describing the eigenstates of LS-coupled system.
-
-For that we define the total angular momentum operator 
-\begin{equation}
-\mathbf{J} = \mathbf{L} + \mathbf{S}.
-\end{equation}
-Since $\mathbf{L}$ and  $\mathbf{S}$ commute, also $\mathbf{J}$ commutes with them. This means that an eigenstate of $\mathbf{L}^2$ and $\mathbf{S}^2$ is also an eigenstate of $\mathbf{J}^2$. It can also be shown that such an eigenstate is also an eigenstate of $J_z$ labelled by $m_J$. Since $J_z = L_z + S_z$ it is easy to see that the state $|LSm_Lm_S\rangle$ is also an eigenstate of $J_z$. However, \emph{the converse is not true}.
-
-Now since $\mathbf{J}^2 = \mathbf{L}^2 + 2\mathbf{L} \cdot \mathbf{S} + \mathbf{S}^2$, we find that
-\begin{equation}
-\lambda \mathbf{L} \cdot \mathbf{S} = \frac{\lambda}{2}(\mathbf{J}^2-\mathbf{L}^2-\mathbf{S}^2 )
-\end{equation}
-Therefore we arrive at the conclusion that the good quantum numbers describing the LS-coupled system are $J$, $L$, $S$, and $m_J$.
 
 \section{Magnetic moment $\mu_J$ and Land\'{e} g-factor}
 
@@ -223,10 +234,8 @@ Therefore we arrive at the conclusion that the good quantum numbers describing t
 \caption{Summation of the orbital and spin magnetic moments\label{fig:mu_J}}
 \end{figure}
 
-What is the magnetic moment associated with the total angular momentum then? [HERE THE FIGURE DEPICTING THE SUMMATION OF MAGNETIC MOMENTS]
-
-
-Thus the expectation value of the magnetic momentum $\boldsymbol{\mu}$ is equal to the component of the magnetic moment $\boldsymbol{\mu}_J$ along $\mathbf{J}$, \emph{i.e.}
+What is the magnetic moment associated with the total angular momentum then?
+As depicted in Figure~\ref{fig:mu_J}, the total magnetic moment is not parallel with $\mathbf{J}$ since the g-factors of the orbital and spin magnetic moments differ. However, since $\mathbf{L}$ and $\mathbf{S}$ precess around $\mathbf{J}$ so does the total magnetic moment. Therefore it has definitive component $\boldsymbol{\mu}_J$ (anti)parallel to $\mathbf{J}$ and thus we find that the expectation value of the magnetic momentum $\boldsymbol{\mu}$ is 
 \begin{equation}
 \langle JLSm_J|\boldsymbol{\mu}|JLSm_J\rangle
 = \langle JLSm_J|\boldsymbol{\mu}_J|JLSm_J\rangle
