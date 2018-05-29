@@ -37,8 +37,7 @@ s_z = \frac{1}{2}\left( \begin{matrix}
 In such a representation the state $| \psi \rangle$ is represented by a two-component spinor
 \begin{equation}
 | \psi \rangle = \left( \begin{matrix} \psi_+ \\ \psi_- \end{matrix} \right) =
-\psi_+ |\uparrow \rangle + \psi_- | \downarrow \rangle
-.
+\psi_+ |\uparrow \rangle + \psi_- | \downarrow \rangle.
 \end{equation}
 
 Let us consider an ion with $N$ electrons. The Pauli equation now reads
@@ -150,7 +149,7 @@ Thus the magnetic susceptibility can be obtain from $A$ as follows
 \end{equation}
 If $\chi$ is small, then $\mathbf{B} \approx \mu_0 \mathbf{H}$ and we get
 \begin{equation}
-\chi = \frac{\partial M}{\partial H} =  - \frac{\mu_0}{V} \frac{\partial^2 A}{\partial B_0^2}
+\chi \approx \mu_0 \frac{\partial M}{\partial B} =  - \frac{\mu_0}{V} \frac{\partial^2 A}{\partial B_0^2}
 \end{equation}
 
 \section{Diamagnetism}
@@ -158,19 +157,75 @@ Consider an ion which contains only filled shells. For such an ion $L^2|\psi\ran
 \begin{equation}
 \Delta E_M = \frac{e^2 B_0^2}{8 m}\sum_i \langle \psi | x_i^2 + y_i^2 | \psi \rangle.
 \end{equation}
-In low temperatures, only the ground state of the system is populated: the Helmholtz energy of $N$ ions is simply $A = N\Delta E_M$. Therefore the susceptibility of such ions in the volume $V$ is
+In low temperatures, only the ground state of the system is populated: the Helmholtz energy of $N$ ions is simply $A = N\Delta E_M$. Therefore the magnetization of such ions in the volume $V$ is
+\begin{equation}
+M = -\frac{N}{V}\frac{\partial \Delta E_M}{\partial B_0}
+= -\frac{N}{V} \frac{e^2 B_0}{4 m} \sum_i \langle \psi | x_i^2 + y_i^2 | \psi \rangle,
+\end{equation}
+and the susceptibility
 \begin{equation}
 \chi = -\frac{\mu_0 N}{V} \frac{\partial^2 \Delta E_M}{\partial B_0^2}
 = -\frac{N}{V} \frac{\mu_0 e^2}{4 m}\sum_i \langle \psi | x_i^2 + y_i^2 | \psi \rangle.
 \end{equation}
-Since the shells are filled, we may assume that the ion is spherically symmetric, thus $\langle \psi | x_i^2| \psi \rangle = \langle \psi | y_i^2 | \psi \rangle = \frac{1}{3} \langle \psi | r_i^2| \psi \rangle $. Furthermore, we may write $\sum_i \langle \psi | r_i^2| \psi \rangle = Z_{e} r^2$, where $Z_{e}$ is the number of electrons and $r$ is the effective ionic radius. Thus the susceptibility becomes
+Since the shells are filled, we may assume that the ion is spherically symmetric, thus $\langle \psi | x_i^2| \psi \rangle = \langle \psi | y_i^2 | \psi \rangle = \frac{1}{3} \langle \psi | r_i^2| \psi \rangle $. Furthermore, we may write $\sum_i \langle \psi | r_i^2| \psi \rangle = Z_{e} r^2$, where $Z_{e}$ is the number of electrons and $r$ is the effective ionic radius. Thus the magnetization and susceptibility become
 \begin{equation}
+M_{dia} = - \frac{N}{V} \frac{Z_e  r^2 e^2}{12 m} B_0, 
+\qquad
 \chi_{dia} =  -\frac{N}{V} \frac{\mu_0  e^2}{12 m} Z_{e} r^2.
 \end{equation}
-The susceptibility caused by this term is negative, so it goes against the applied magnetic field. Thus it is fitting to call the macroscopic magnetic response \emph{diamagnetic}\footnote{\emph{dia} = against, across}. More specifically, the derived term is known as the \emph{Larmor diamagnetism}.
+The magnetization and susceptibility are negative, so it goes against the applied magnetic field. Thus it is fitting to call the macroscopic magnetic response \emph{diamagnetic}\footnote{\emph{dia} = against, across}. More specifically, the derived term is known as the \emph{Larmor diamagnetism}.
 
+\section{Paramagnetism part I: Electron spin}
+Before we consider the  general case, we first consider paramagnetism of ions which have a single unpaired electron for which $L = 0$. Therefore the permanent magnetic moment of the ion is completely due to the electron spin. Thus the magnetic energy of the ion given by Eq.~\eqref{eq:E_magnetic} becomes
+\begin{equation}
+\Delta E_M = 2 \mu_B B_0 \langle \psi | S_z | \psi \rangle,
+\end{equation} 
+where the diamagnetic term is dropped out since it is significantly smaller than the paramagnetic contribution for the magnetic field strengths encountered in all practical situations. 
+Hiding all the unnecessary information about the ion under the carpet, we may describe its quantum states in a simple manner with the eigenstates of $S_z$: $| \uparrow \rangle$ and $| \downarrow \rangle$. Therefore we are left with a two-level system with the energy levels $E_{\pm} = \pm \mu_B B_0$.\footnote{It is worth noting, that the higher energy level corresponds to $| \uparrow \rangle$ state for which the spin is parallel with the magnetic field. This is because the magnetic moment associated with the spin $\boldsymbol{\mu}_S = - 2\mu_B \mathbf{S}$ points to the opposite direction.} The partition function of the system is thus
+\begin{equation}
+Z = e^{-E_-/k_B T} + e^{-E_+/k_B T} = e^{\mu_B B_0/k_B T} + e^{-\mu_B B_0/k_B T} = 2 \cosh \left( \frac{\mu_B B_0}{k_B T} \right)
+\end{equation}
+Therefore the expectation value of the Helmholtz energy is 
+\begin{equation}
+\langle A \rangle = - k_B T \ln \left[ \cosh \left( \frac{\mu_B B_0}{k_B T} \right) \right] - k_B T \ln 2
+\end{equation}
+
+Now consider a system consisting of $N$ such non-interacting spin-1/2 ions in volume $V$. The Helmholtz energy, being an additive quantity, is now simply $N$ times the expectation value of a single ion\footnote{Strictly speaking, this is also the expectation value of $A$, but when $N$ is large, the distribution of any thermodynamic quantity is heavily peaked around its expectation value.}, \emph{i.e.}
+\begin{equation}
+A = N \langle A \rangle = - N k_B T \ln \left[ \cosh \left( \frac{\mu_B B_0}{k_B T} \right) \right] - N k_B T \ln 2
+\end{equation}
+Thus the magnetization is 
+\begin{equation}
+M = \frac{N k_B T}{V} \frac{\partial}{\partial B_0} \ln \left[ \cosh \left( \frac{\mu_B B_0}{k_B T} \right) \right]
+= \frac{N \mu_B}{V} \tanh \left( \frac{\mu_B B_0}{k_B T} \right)
+\end{equation}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.49\textwidth]{magnetism/figures/spin_magnetization_a}
+\includegraphics[width=0.49\textwidth]{magnetism/figures/spin_magnetization_b}
+\caption{Left: Magnetization of non-interacting spin-1/2 ions as a function of field strength; Right: Magnetization as a function of temperature.\label{fig:spin_magnetization}}
+\end{figure}
+
+The magnetization as functions of field strength and temparature are presented in Figure~\ref{fig:spin_magnetization}. As can be seen, in the absence of external field, there is no net magnetization as the thermal motion randomizes the orientations of the spins. Increasing the field strength, we see that the magnetization behaves linearly in terms of $B_0$ when the magnetic energy per spin $\mu_B B_0$ is considerably smaller than the thermal energy $k_B T$. Eventually, when the magnetic energy over comes the thermal energy, we see the saturation of magnetization towards the value $N\mu_B/V$ which corresponds to the situation where all magnetic moments are aligned with the magnetic field. 
+
+In the room temperature $T=300$~K, the magnetic field required to overcome the thermal energy is the order of $500$~T, which is an extremely strong field! Therefore we may usually employ the linear approximation for magnetization:
+\begin{equation}
+M \approx \frac{N \mu_B^2}{V}\frac{B_0}{k_B T}
+\end{equation}  
+For weak magnetic fields, the susceptibility then becomes
+\begin{equation}
+\chi \approx \mu_0 \frac{\partial M}{\partial B_0} = \frac{N\mu_0 \mu_B^2}{k_B V} \frac{1}{T}
+\end{equation}
+The susceptibility of the paramagnetic system consisting of spin-1/2 particles is thus found to be inversely proportional to the temperature under the weak field assumption. The behaviour is known as \emph{Curie's law} and applies for other paramagnetic systems as well. However, the constant of proportionality differs from system to system since most ions are not spin-1/2 particles. We will generalize the formalism in the subsequent sections.
 
 \section{Total angular momentum $J$}
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.8\textwidth]{magnetism/figures/angular_momenta_sums}
+\caption{The effect of the LS-coupling to the summation of the angular momenta.\label{fig:angular_momenta_sums}}
+\end{figure}
+
 Consider a system where orbital and spin angular momenta are decoupled from each other. The states of such a system are consequently the eigenstates of operators $\mathbf{L}^2$, $\mathbf{S}^2$, $L_z$, and  $S_z$. Thus the states can be characterised by the quantum numbers $L$, $S$, $m_L$, and $m_S$  or $|LSm_Lm_S\rangle$. 
 However, the situation changes if we add in the spin-orbit interaction. If the interaction strength is weak compared to the Coulomb interaction, we may consider its effect as a small perturbation. Therefore we may still use the $L$ and $S$ as the good quantum numbers. However, the same does not apply to $m_L$ and $m_S$. 
 
@@ -220,15 +275,10 @@ Now since $\mathbf{J}^2 = \mathbf{L}^2 + 2\mathbf{L} \cdot \mathbf{S} + \mathbf{
 \end{equation}
 which is conformant with the earlier argument that for the weak spin-orbit coupling the eigenstates are still the eigenstates of $\mathbf{L}^2$ and $\mathbf{S}^2$. Therefore we arrive at the conclusion that the good quantum numbers describing the LS-coupled system are $J$, $L$, $S$, and $m_J$. 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{magnetism/figures/angular_momenta_sums}
-\caption{The effect of the LS-coupling to the summation of the angular momenta.\label{fig:angular_momenta_sums}}
-\end{figure}
 
 \section{Magnetic moment $\mu_J$ and Land\'{e} g-factor}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \centering
 \includegraphics[width=0.3\textwidth]{magnetism/figures/mu_J}
 \caption{Summation of the orbital and spin magnetic moments\label{fig:mu_J}}
@@ -265,6 +315,9 @@ where $\mathbf{J}^2 = \mathbf{L}^2 + 2\mathbf{L} \cdot \mathbf{S} + \mathbf{S}^2
 \begin{equation}
 g_L = \frac{3}{2} + \frac{S(S+1)-L(L+1)}{2J(J+1)}
 \end{equation}
+
+%\section{Paramagnetism part II: Full ion}
+
 \bibliographystyle{plain}
 \bibliography{magnetism/refs}
  
