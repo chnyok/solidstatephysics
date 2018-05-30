@@ -9,7 +9,7 @@
 The mathematical description of the crystal consists of two parts: the \emph{lattice} which is a periodic grid of points extending over space and the \emph{basis} which in this context is the set of ions repeating at every lattice point.
 
 The lattice can be described by the set of so called \emph{lattice vectors} $\lbrace\mathbf{R}\rbrace$ given by
-\begin{equation}
+\begin{equation}\label{eq:direct_lattice}
 \mathbf{R} \equiv \mathbf{R}_{n_1 n_2 n_3}  = n_1 \mathbf{a}_1 + n_2 \mathbf{a}_2 + n_3 \mathbf{a}_3,
 \end{equation}
 where $n_i \in \mathds{Z}$ and $\mathbf{a}_i$ are linearly independent vectors in the real space called the \emph{primitive vectors}. The primitive vectors have the dimensions of length owing to which the lattice spanned by them is referred to as the \emph{direct lattice}. It should be noted the choice of the primitive vectors is not unique; any non-collinear set of the lattice vectors can be used.
@@ -31,7 +31,67 @@ There is, however, a common used way to choose a primitive unit cell that has th
 \caption{Wigner-Seitz cell of an oblique 2D-lattice. The blue area covers the points closest to the lattice point in the center.}
 \end{figure}
 
+\section{Reciprocal Lattice}
+In the scope of this for a general plane wave in terms of position $\mathbf{r}$ and time $t$ is written as
+\begin{equation}
+f(\mathbf{r},t) = A e^{i\mathbf{k}\cdot\mathbf{r} - i\omega t}.
+\end{equation}
+The wavevector $\mathbf{k}$ points at the direction of propagation of the wave with the length of $k \equiv |\mathbf{k}| = 2\pi/\lambda$, where $\lambda$ is the wavelength. The \emph{angular frequency} (often just frequency) $\omega$ is related to $k$ by $\omega = v k$, where $v$ is the \emph{phase velocity} of the wave.
 
-\bibliographystyle{plain}
+Dropping out the time-dependent part of the phase $e^{-i\omega t}$, consider a plane wave $e^{i\mathbf{k}\cdot\mathbf{r}}$ with respect to the direct lattice vectors $\mathbf{R}$ defined by Eq.~\eqref{eq:direct_lattice}. In order for the wave to have exactly the same periodicity as the lattice, it needs to have the same value at every single lattice point. This condition can be written as
+\begin{equation}
+e^{i\mathbf{k}\cdot\mathbf{R}} = 1 \qquad \mathrm{or} \qquad  \mathbf{k}\cdot\mathbf{R} = 2 \pi n, \quad n \in \mathbb{Z}
+\end{equation}
+for all $\mathbf{R}$. The infinite set of wavevectors $\mathbf{k}$ which fulfil the condition, defines the so-called \emph{reciprocal lattice} which is an extremely useful concept in solid state physics which we shall see in the subsequent chapters. The reciprocal lattice vectors are usually denoted by $\mathbf{G}$.\footnote{Some sources use $\mathbf{h}$ instead.}
+
+Given the primitive vectors $\mathbf{a}_i$ of the direct lattice, any reciprocal lattice can be written as
+\begin{equation}
+\mathbf{G} \equiv \mathbf{G}_{hkl}  = h \mathbf{b}_1 + k \mathbf{b}_2 + l \mathbf{b}_3,
+\end{equation}
+where $h,k,l \in \mathds{Z}$ and the reciprocal primitive vectors $\mathbf{b_i}$ are
+\begin{equation}
+\mathbf{b}_1 = 2 \pi \frac{\mathbf{a}_2 \times \mathbf{a}_3}{\mathbf{a}_1 \cdot \mathbf{a}_2 \times \mathbf{a}_3} \qquad
+\mathbf{b}_2 = 2 \pi \frac{\mathbf{a}_3 \times \mathbf{a}_1}{\mathbf{a}_1 \cdot \mathbf{a}_2 \times \mathbf{a}_3} \qquad
+\mathbf{b}_3 = 2 \pi \frac{\mathbf{a}_1 \times \mathbf{a}_2}{\mathbf{a}_1 \cdot \mathbf{a}_2 \times \mathbf{a}_3}.
+\end{equation}
+Thus we see that the set of all $\mathbf{G}$ itself forms a Braivais lattice in the \emph{reciprocal space} (with linear dimensions measured in units of inverse length).
+
+The reciprocal lattice can be also understood from an alternative viewpoint. We may describe the direct lattice in terms of the Dirac delta function as follows:
+\begin{equation}
+\rho_R(\mathbf{r}) = \sum_{\mathbf{R}} \delta(\mathbf{r}-\mathbf{R}), 
+\end{equation}
+where the sum goes over all lattice vectors. Therefore $\rho_R(\mathbf{r})$ is function whose value is an (integrable) infinity at the lattice points and zero elsewhere. 
+%Now, since the delta function can be presented as
+%\begin{equation}
+%\delta(\mathbf{r}-\mathbf{R}) = \frac{1}{(2\pi)^3} \int d\mathbf{k} \ e^{i\mathbf{k}\cdot (\mathbf{r}-\mathbf{R})}
+%\end{equation}
+%we obtain by taking the Fourier transform
+Now taking the Fourier transform\footnote{In this document, the convention is that 
+$$
+\mathcal{F}[f](\mathbf{k})  =  \int d \mathbf{r}\ f(\mathbf{r}) e^{-i\mathbf{k}\cdot \mathbf{r}} \qquad
+\mathcal{F}^{-1}[F](\mathbf{r})  = \frac{1}{(2\pi)^3} \int d \mathbf{k} \ F(\mathbf{k}) e^{i\mathbf{k}\cdot \mathbf{r}}
+$$} of the lattice we obtain
+\begin{equation}
+\mathcal{F}[\rho_R](\mathbf{k}) = 
+ \sum_{\mathbf{R}} \int d \mathbf{r}\ \delta(\mathbf{r}-\mathbf{R}) e^{-i\mathbf{k}\cdot \mathbf{r}} = \sum_{\mathbf{R}}
+ e^{-i\mathbf{k}\cdot \mathbf{R}}.
+\end{equation}
+The result can be interpreted as the Fourier expansion of a function periodic in terms of $\mathbf{k}$. Since the coefficient is constant for each term, we see that the series is that of the Dirac delta, which is repeated at every $\mathbf{k}$ which fulfils $e^{i\mathbf{k}\cdot\mathbf{R}} = 1$. Thus in terms of the reciprocal lattice vectors $\mathbf{G}$, we may write
+\begin{equation}
+\mathcal{F}[f](\mathbf{k}) = (2\pi)^3 \sum_{\mathbf{G}} \delta(\mathbf{k} - \mathbf{G}),
+\end{equation}
+where the factor of $(2\pi)^3$ comes from the normalisation. Therefore we have shown that the reciprocal lattice can be obtained from the direct lattice \emph{via} the Fourier transform and \emph{vice versa}. This exactly the same procedure how one makes the conversion between the momentum and position in quantum mechanics. We'll see later how the reciprocal space and momentum are related, but it is already now useful to keep in mind, that the reciprocal space is basically just the momentum space in suitable units.
+
+%\begin{equation}
+%\mathcal{F}[\rho_R](\mathbf{k}) = \frac{1}{\sqrt{2\pi}^{3}}
+% \sum_{\mathbf{R}} \int d \mathbf{r}\ \left[ \frac{1}{(2\pi)^3} \int %d\mathbf{k}' \ e^{i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{R})} \right] e^{-i\mathbf{k}\cdot \mathbf{r}} 
+%\end{equation}
+%By changing the integration order and reordering the terms, we get
+%\begin{equation}
+%\mathcal{F}[\rho_R](\mathbf{k}) = \frac{1}{\sqrt{2\pi}^{3}}
+% \sum_{\mathbf{R}} \int d \mathbf{k}'\ \left[ \frac{1}{(2\pi)^3} \int d\mathbf{r} \ e^{i(\mathbf{k}'-\mathbf{k})\cdot \mathbf{r}} \right] e^{-i\mathbf{k}\cdot \mathbf{R}} 
+%\end{equation}
+
+%\bibliographystyle{plain}
 %\bibliography{magnetism/refs}
  
