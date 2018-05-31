@@ -121,33 +121,71 @@ Therefore the current density $\mathbf{J}$ owing to oscillating electons becomes
 \end{equation}
 where $n(\mathbf{r})$ is the number density of electrons without the influence of external wavefield.
 
-What kind of wavefield does the oscillating charge density emit? For that we need to solve the wave equations for the scalar potential $\varphi$ and the vector potential $\mathbf{A}$:
-\begin{align}
-\nabla^2 \varphi - \frac{1}{c^2}\frac{\partial^2 \varphi}{\partial t^2} &= -\frac{\rho}{\varepsilon_0} \\
-\nabla^2 \mathbf{A} - \frac{1}{c^2}\frac{\partial^2 \mathbf{A}}{\partial t^2} &= -\mu_0 \mathbf{J}
-\end{align}
-Since the retarded Green's function for the wave equation is 
+What kind of wavefield does the oscillating charge density emit? For that we need to solve the 
+%wave equations for the scalar potential $\varphi$ and 
+wave equation for the vector potential $\mathbf{A}$:
+%\begin{align}
+%\nabla^2 \varphi - \frac{1}{c^2}\frac{\partial^2 \varphi}{\partial t^2} &= -\frac{\rho}{\varepsilon_0} \\
+%\nabla^2 \mathbf{A} - \frac{1}{c^2}\frac{\partial^2 \mathbf{A}}{\partial t^2} &= -\mu_0 \mathbf{J}
+%\end{align}
+\begin{equation}\label{eq:wave_function_A}
+\nabla^2 \mathbf{A} - \frac{1}{c^2}\frac{\partial^2 \mathbf{A}}{\partial t^2} = -\mu_0 \mathbf{J}
+\end{equation}
+Since the $\nabla^2 - c^{-2} \partial^2_t$ is a linear operator, we seek the solution using the \emph{Green's function}. The Green's function $G(\mathbf{r},t;\mathbf{r}',t')$ is the solution to the problem 
+\begin{equation}
+\nabla^2  G(\mathbf{r},t;\mathbf{r}',t') - \frac{1}{c^2}\frac{\partial^2 G(\mathbf{r},t;\mathbf{r}',t')}{\partial t^2} = - \delta(\mathbf{r}-\mathbf{r}')
+\delta(t-t').
+\end{equation}
+The solution to the inhomogeneous problem \eqref{eq:wave_function_A} is then
+\begin{equation}
+\mathbf{A}(\mathbf{r},t) = \mu_0 \int d\mathbf{r}' dt' \   \mathbf{J}(\mathbf{r}',t') G(\mathbf{r},t;\mathbf{r}',t').
+\end{equation}
+Since the retarded Green's function describing the solutions propagating away from the source is 
 \begin{equation}
 G(\mathbf{r},t;\mathbf{r}',t') = \frac{1}{4 \pi} \frac{\delta(t'-t_r)}{|\mathbf{r}-\mathbf{r}'|},
 \end{equation}
-where the retarded time $t_r = t - |\mathbf{r}-\mathbf{r}'|/c$ takes into account the finite speed of light, the solutions to the wave equations are 
+where the retarded time $t_r = t - |\mathbf{r}-\mathbf{r}'|/c$ takes into account the finite speed of light, 
+%the solutions to the wave equations are 
+the formal solution to the wave equation is 
+%\begin{align}
+%\varphi &= \frac{1}{4 \pi \varepsilon_0}\int d\mathbf{r}' dt' \  \frac{\rho(\mathbf{r}',t')}{|\mathbf{r}-\mathbf{r}'|} \delta(t'-t_r) \\
+%\mathbf{A} &= \frac{\mu_0}{4 \pi}\int d\mathbf{r}' dt' \  \frac{\mathbf{J}(\mathbf{r}',t')}{|\mathbf{r}-\mathbf{r}'|} \delta(t'-t_r).\label{eq:oscillating_A}
+%\end{align}
+\begin{equation}
+\mathbf{A} = \frac{\mu_0}{4 \pi}\int d\mathbf{r}' dt' \  \frac{\mathbf{J}(\mathbf{r}',t')}{|\mathbf{r}-\mathbf{r}'|} \delta(t'-t_r).\label{eq:oscillating_A}
+\end{equation}
+%Since the atom is electrically neutral, the negative charge of the electron cloud is canceled by the positive nucleus. Sufficiently far away from the atom $\rho(\mathbf{r}',t')/|\mathbf{r}-\mathbf{r}'| \approx 0$, meaning that the scalar potential $\varphi$ vanishes. We are thus left only with a non-zero $\mathbf{A}$. 
+Substituting $\mathbf{J}$ fom Eq.~\eqref{eq:oscillating_J} to Eq.~\eqref{eq:oscillating_A}, we get
 \begin{align}
-\varphi &= \frac{1}{4 \pi \varepsilon_0}\int d\mathbf{r}' dt' \  \frac{\rho(\mathbf{r}',t')}{|\mathbf{r}-\mathbf{r}'|} \delta(t'-t_r) \\
-\mathbf{A} &= \frac{\mu_0}{4 \pi}\int d\mathbf{r}' dt' \  \frac{\mathbf{J}(\mathbf{r}',t')}{|\mathbf{r}-\mathbf{r}'|} \delta(t'-t_r).\label{eq:oscillating_A}
+\mathbf{A} &= \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega} \mathbf{E}_0 \int d\mathbf{r}' dt' \  \frac{\delta(t'-t_r)}{|\mathbf{r}-\mathbf{r}'|} n(\mathbf{r}') e^{i \mathbf{k}\cdot\mathbf{r}'-i \omega t'} \nonumber \\ &= \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega} \mathbf{E}_0 \int d\mathbf{r}' \  \frac{n(\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|}  e^{i \mathbf{k}\cdot\mathbf{r}'-i \omega t_r}
 \end{align}
-Since the atom is electrically neutral, the negative charge of the electron cloud is canceled by the positive nucleus. Sufficiently far away from the atom $\rho(\mathbf{r}',t')/|\mathbf{r}-\mathbf{r}'| \approx 0$, meaning that the scalar potential $\varphi$ vanishes. We are thus left only with a non-zero $\mathbf{A}$. Substituting $\mathbf{J}$ fom Eq.~\eqref{eq:oscillating_J} to Eq.~\eqref{eq:oscillating_A}, we get
+Considering distances considerably larger than atomic dimensions, we may approximate $|\mathbf{r}-\mathbf{r}'|^{-1} \approx r^{-1}$. In addition, by substituting $t_r = t - |\mathbf{r}-\mathbf{r}'|/c$, we find
+\begin{align}
+\mathbf{A} &= \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega}\frac{1}{r} \mathbf{E}_0  \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i \mathbf{k}\cdot\mathbf{r}'+i \omega |\mathbf{r}-\mathbf{r}'|/c -i \omega t} \nonumber \\ &= \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega}\frac{1}{r} \mathbf{E}_0  e^{-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i \mathbf{k}\cdot\mathbf{r}'+i k |\mathbf{r}-\mathbf{r}'|},
+\end{align}
+where in the last step $k=\omega/c$ has been used. By denoting the outgoing wavevector by $\mathbf{k}'$, we recognize that
 \begin{equation}
-\mathbf{A} = \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega} \mathbf{E}_0 \int d\mathbf{r}' dt' \  \frac{\delta(t'-t_r)}{|\mathbf{r}-\mathbf{r}'|} n(\mathbf{r}') e^{i \mathbf{k}\cdot\mathbf{r}'-i \omega t'} = \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega} \mathbf{E}_0 \int d\mathbf{r}' \  \frac{n(\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|}  e^{i \mathbf{k}\cdot\mathbf{r}'-i \omega t_r}
+k|\mathbf{r}-\mathbf{r}'| = \mathbf{k}'\cdot(\mathbf{r}-\mathbf{r}') 
 \end{equation}
-Considering distances considerably larger than atomic dimensions, we may approximate $|\mathbf{r}-\mathbf{r}'|^{-1} \approx r^{-1}$. In adddition, by substituting $t_r = t - |\mathbf{r}-\mathbf{r}'|/c$, we find
+In principle, the direction of $\mathbf{k}'$ depends on $\mathbf{r}'$ but far away from the atom we can regard it being constant. Thus
 \begin{equation}
-\mathbf{A} = \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega}\frac{1}{r} \mathbf{E}_0  \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i \mathbf{k}\cdot\mathbf{r}'-i \omega |\mathbf{r}-\mathbf{r}'|/c -i \omega t} = \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega}\frac{1}{r} \mathbf{E}_0  e^{-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i \mathbf{k}\cdot\mathbf{r}'-i k |\mathbf{r}-\mathbf{r}'|},
+\mathbf{A} = \frac{\mu_0}{4 \pi} \frac{ie^2}{m\omega}\frac{1}{r} \mathbf{E}_0  e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'}.
 \end{equation}
-where in the last step $k=\omega/c$ has been used. The term $|\mathbf{r}-\mathbf{r}'|$ in the exponent can't be replaced as
+
+Since we haven't calculated the scalar potential $\varphi$, we can't directly obtain the electric field $\mathbf{E} = -\nabla \varphi - \partial \mathbf{A}/ \partial t$ from the potential.  Therefore we first compute the magnetic field
 \begin{equation}
-|\mathbf{r}-\mathbf{r}'| = \sqrt{r^2 -2\mathbf{r}\cdot\mathbf{r}' +r'^2} \approx
-r - \mathbf{r}\cdot\mathbf{r}'/r
+\mathbf{B} = \nabla \times \mathbf{A} = -\frac{\mu_0}{4 \pi} \frac{e^2}{m\omega}\frac{1}{r} \mathbf{k}' \times \mathbf{E}_0  e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'},
 \end{equation}
+where we have benefited from the fact that $e^{i \mathbf{k}'\cdot\mathbf{r}}$ varies considerably faster than $r^{-1}$, thus dominating the derivative. The electric field is now found using the Maxwell's equations. Assuming the plane wave form $\mathbf{E} e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}$, the time derivative of the field is
+\begin{equation}
+\frac{\partial}{\partial t} \mathbf{E} e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}
+= -i \omega \mathbf{E} e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}.
+\end{equation}
+In the absence of free currents, $\partial \mathbf{E} /\partial t = c^2 \nabla \times \mathbf{B}$. Therefore for the plane waves in question $\mathbf{E} = -c^2/\omega \mathbf{k}' \times \mathbf{B}$. Thus
+\begin{equation}
+\mathbf{E} = \frac{1}{4 \pi \varepsilon_0} \frac{e^2}{mc^2}\frac{1}{r} \frac{\mathbf{k}' \times(\mathbf{k}' \times \mathbf{E}_0)}{k^2}  e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'},
+\end{equation}
+where $c^2 = 1/\epsilon_0 \mu_0$ has been used.
 
 %\bibliographystyle{plain}
 %\bibliography{magnetism/refs}
