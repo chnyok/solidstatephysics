@@ -1,10 +1,10 @@
 \section{Elastic Scattering}
 
-Consider an atom subject to a (classical) electromagnetic magnetic wave whose electric part is given by $\mathbf{E}_0 \cos (\mathbf{k}\cdot\mathbf{r}- \omega t)$. However, since the Maxwell equations and classical mechanics do not mix the real and imaginary parts, we may for mathematical convenience work with the complex exponential plane wave 
+Consider a charge density subject to a linearly polarized (classical) electromagnetic magnetic wave whose electric part is given by $\mathbf{E}_0 \cos (\mathbf{k}\cdot\mathbf{r}- \omega t)$. However, since the Maxwell equations and classical mechanics do not mix the real and imaginary parts, we may for mathematical convenience work with the complex exponential plane wave 
 \begin{equation}\label{eq:complex_E_wave}
 \mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i \mathbf{k}\cdot\mathbf{r}-i \omega t},
 \end{equation}
-from which the physical field is recovered by taking its real part. Neglecting the effect of the magnetic field, the Lorentz force affecting an miniscule charge $dq$ is
+from which the physical field is recovered by taking its real part. Neglecting the effect of the magnetic field, the Lorentz force affecting an miniscule charge $dq$ in an infinitesimal volume element is
 \begin{equation}
 d\mathbf{F} = dq \ \mathbf{E}.
 \end{equation}
@@ -12,7 +12,7 @@ Substituting the force from Newton's II law $\mathbf{F} = m \ddot{\mathbf{r}} \R
 \begin{equation}\label{eq:charge_acceleration}
 \ddot{\mathbf{r}} = \frac{dq}{dm} \mathbf{E}.
 \end{equation}
-Since the nucleus of the atom is orders of magnitude more massive than electron, we may ignore its movement and thus contribution to the scattering. Thus $dq/dm = -e/m$, where $e$ is the elementary charge and $m$ is the electron mass. Therefore by substituting the wavefield~\eqref{eq:complex_E_wave} to Eq.~\eqref{eq:charge_acceleration}, we get
+Since the nuclei of atoms are orders of magnitude more massive than electrons, we may ignore their movement and thus contribution to the scattering. Thus we can concentrate on the electronic contribution for which $dq/dm = -e/m$, where $e$ is the elementary charge and $m$ is the electron mass. Therefore by substituting the wavefield~\eqref{eq:complex_E_wave} to Eq.~\eqref{eq:charge_acceleration}, we get
 \begin{equation}
 \ddot{\mathbf{r}} = -\frac{e}{m} \mathbf{E}_0 e^{i \mathbf{k}\cdot\mathbf{r}-i \omega t}
 \end{equation}
@@ -80,15 +80,37 @@ In principle, the direction of $\mathbf{k}'$ depends on $\mathbf{r}'$ but far aw
 
 Since we haven't calculated the scalar potential $\varphi$, we can't directly obtain the electric field $\mathbf{E} = -\nabla \varphi - \partial \mathbf{A}/ \partial t$ from the potential.  Therefore we first compute the magnetic field
 \begin{equation}
-\mathbf{B} = \nabla \times \mathbf{A} = -\frac{\mu_0}{4 \pi} \frac{e^2}{m\omega}\frac{1}{r} \mathbf{k}' \times \mathbf{E}_0  e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'},
+\mathbf{B}' = \nabla \times \mathbf{A} = -\frac{\mu_0}{4 \pi} \frac{e^2}{m\omega}\frac{1}{r} \mathbf{k}' \times \mathbf{E}_0  e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'},
 \end{equation}
-where we have benefited from the fact that $e^{i \mathbf{k}'\cdot\mathbf{r}}$ varies considerably faster than $r^{-1}$, thus dominating the derivative. The electric field is now found using the Maxwell's equations. Assuming the plane wave form $\mathbf{E} e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}$, the time derivative of the field is
+where we have benefited from the fact that $e^{i \mathbf{k}'\cdot\mathbf{r}}$ varies considerably faster than $r^{-1}$, thus dominating the derivative. The electric field is now found using the Maxwell's equations. Assuming the plane wave form $\mathbf{E}' e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}$, the time derivative of the field is
 \begin{equation}
-\frac{\partial}{\partial t} \mathbf{E} e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}
-= -i \omega \mathbf{E} e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}.
+\frac{\partial}{\partial t} \mathbf{E}' e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}
+= -i \omega \mathbf{E}' e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t}.
 \end{equation}
-In the absence of free currents, $\partial \mathbf{E} /\partial t = c^2 \nabla \times \mathbf{B}$. Therefore for the plane waves in question $\mathbf{E} = -c^2/\omega \mathbf{k}' \times \mathbf{B}$. Thus
+In the absence of free currents, $\partial \mathbf{E}' /\partial t = c^2 \nabla \times \mathbf{B}'$. Therefore for the plane waves in question $\mathbf{E}' = -c^2/\omega \mathbf{k}' \times \mathbf{B}'$. Thus
 \begin{equation}
-\mathbf{E} = \frac{1}{4 \pi \varepsilon_0} \frac{e^2}{mc^2}\frac{1}{r} \frac{\mathbf{k}' \times(\mathbf{k}' \times \mathbf{E}_0)}{k^2}  e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'},
+\mathbf{E}' = \frac{1}{4 \pi \varepsilon_0} \frac{e^2}{mc^2}\frac{1}{r} \frac{\mathbf{k}' \times(\mathbf{k}' \times \mathbf{E}_0)}{k^2}  e^{i \mathbf{k}'\cdot\mathbf{r}-i \omega t} \int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'},
 \end{equation}
-where $c^2 = 1/\epsilon_0 \mu_0$ has been used.
+where $c^2 = 1/\epsilon_0 \mu_0$ has been used. 
+The quantity we measure in the scattering experiments is not the electric field, however, but the time-averaged intensity of the field. Since the intensity is proportional to $|\mathbf{E}|^2$, the ratio of the scattered intensity $I$' to the incident intensity $I$ is  
+\begin{equation}
+\frac{I'}{I} =  \frac{|\mathbf{E}'|^2}{|\mathbf{E}|^2}
+\end{equation}
+Since 
+\begin{align}
+\mathbf{k}' \times(\mathbf{k}' \times \mathbf{E}_0) &= (\mathbf{k}'\cdot \mathbf{E}_0)\mathbf{k}' - k^2 \mathbf{E}_0 = k |\mathbf{E}_0| \cos \chi \mathbf{k}'  - k^2 \mathbf{E}_0 \nonumber \\ \Rightarrow
+|\mathbf{k}' \times(\mathbf{k}' \times \mathbf{E}_0)|^2 &=
+k^2 |\mathbf{E}_0|^2 \cos^2 \chi \mathbf{k}' \cdot \mathbf{k}'
+-2 k^3 |\mathbf{E}_0| \cos \chi \mathbf{k}'\cdot \mathbf{E}_0 + k^4 |\mathbf{E}_0|^2 \nonumber \\
+&= (1 - \cos^2 \chi) k^4 |\mathbf{E}_0|^2 = \sin^2 \chi k^4 |\mathbf{E}_0|^2,
+\end{align}
+where $\chi$ is the angle between the polarization of the incident wave and the scattering vector, we obtain
+\begin{equation}
+\frac{I'}{I} = \left(\frac{e^2}{4\pi\varepsilon_0 m c^2} \right)^2 \frac{1}{r^2} \sin^2 \chi \left|\int d\mathbf{r}' \  n(\mathbf{r}')  e^{i (\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}'} \right|^2.
+\end{equation}
+The expression of intensity ratio still contains the factor of $r^{-2}$ which is basically a parameter depending on the experiment setup, not the system itself. In scattering studies, it is customary to use the so-called \emph{differential scattering cross section} $d \sigma / d\Omega$ as the 
+quantity of interest instead. By definition $d \sigma / d\Omega$ is the fraction of intensity (or particles) scattered into a given direction. Since the infinitesimal area $dA = r^2 d \Omega$, where $d \Omega$ is the solid angle corresponding to the area, we find that the diffrential cross-section is
+\begin{equation}
+\frac{d \sigma}{d \Omega} = \left(\frac{e^2}{4\pi\varepsilon_0 m c^2} \right)^2 \sin^2 \chi \left|\int d\mathbf{r}' \  n(\mathbf{r}')  e^{-i \mathbf{q}\cdot\mathbf{r}'} \right|^2.
+\end{equation}
+where the \emph{scattering vector} $\mathbf{q} = \mathbf{k}' - \mathbf{k}$.
